@@ -1,0 +1,90 @@
+
+public class Computador implements LigarComputador {
+	private boolean ligado;
+	private boolean boot;
+	private boolean energia;
+	String Z;
+
+	public Computador() {
+		energia = true;
+		ligado = false;
+		boot = false;
+	}
+
+	private boolean getLigado() {
+		return ligado;
+	}
+
+	private void setLigado(boolean l) {
+		this.ligado = l;
+	}
+
+	private boolean getBoot() {
+		return boot;
+	}
+
+	private void setBoot(boolean b) {
+		this.boot = b;
+	}
+
+	private boolean getEnergia() {
+		return energia;
+	}
+
+	private void setEnergia(boolean E) {
+		this.energia = E;
+	}
+
+	@Override
+	public void Ligar() {
+		if (this.getEnergia()) {
+			this.setLigado(true);
+		} else {
+			System.out.println("Impossível ligar computador sem energia. ");
+		}
+
+	}
+
+	@Override
+	public void desligar() {
+		if (this.getLigado()) {
+			this.setLigado(false);
+		}
+
+	}
+
+	@Override
+	public void fazerboot() {
+		if (this.getLigado()) {
+			System.out.print("Entrando Em Bios");
+			for (int i = 0; i < 3; i++) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException ex) {
+				}
+				System.out.print(".");
+			}
+			System.out.println("");
+			System.out.println("Você está na tela da bios.");
+			System.out.println("A temperatura atual do processador é de 58°.");
+			System.out.println("A temperatura da memoria ram é de 42°.");
+			System.out.println("O Cooler está rodando a 3500Rpm");
+			boot = true;
+		} else {
+			System.out.println("Impossível fazer boot com o computador desligado.");
+		}
+	}
+
+	@Override
+	public void cortarenergia() {
+		this.setEnergia(false);
+
+	}
+
+	@Override
+	public void Status() {
+		System.out.println("Tem Energia? " + this.getEnergia());
+		System.out.println("Está ligado? " + this.getLigado());
+		System.out.println("Está na tela da bios? " + this.getBoot());
+	}
+}
