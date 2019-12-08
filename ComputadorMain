@@ -1,0 +1,11 @@
+
+public class ComputadorMain {
+
+	public static void main(String[] args) {
+		Computador c1 = new Computador();
+		c1.Ligar();
+		c1.fazerboot();
+		c1.Status();
+		}
+
+}
