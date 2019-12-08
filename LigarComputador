@@ -1,0 +1,8 @@
+
+public interface LigarComputador {
+	public abstract void Ligar();
+	public abstract void desligar();
+	public abstract void fazerboot();
+	public abstract void cortarenergia();
+	public abstract void Status();
+}
